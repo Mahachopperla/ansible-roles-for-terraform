@@ -1,5 +1,5 @@
-CATALOGUE_HOST: catalogue.robotshop.site
-USER_HOST: user.robotshop.site
-CART_HOST:  cart.robotshop.site
-SHIPPING_HOST:  shipping.robotshop.site
-PAYMENT_HOST: payment.robotshop.site
+CATALOGUE_HOST: catalogue-{{ env }}.robotshop.site
+USER_HOST: user-{{ env }}.robotshop.site
+CART_HOST:  cart-{{ env }}.robotshop.site
+SHIPPING_HOST:  shipping-{{ env }}.robotshop.site
+PAYMENT_HOST: payment-{{ env }}.robotshop.site

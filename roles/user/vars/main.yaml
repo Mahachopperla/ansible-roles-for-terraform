@@ -1,2 +1,2 @@
-REDIS_HOST: redis.robotshop.site
-MONGODB_HOST: mongodb.robotshop.site
+REDIS_HOST: redis-{{ env }}.robotshop.site
+MONGODB_HOST: mongodb-{{ env }}.robotshop.site
