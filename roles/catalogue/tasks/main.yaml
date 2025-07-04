@@ -8,10 +8,6 @@
     name: common
     tasks_from: nodejs.yaml
 
-- name: setting up systemd
-  include_role:
-    name: common
-    tasks_from: systemd.yaml
 
 - name: copying mongo repo to yum repos
   ansible.builtin.copy:
@@ -25,7 +21,7 @@
 
 
 - name: check data is already loaded or not
-  ansible.builtin.command:  mongosh --quiet --host mongodb-dev.robotshop.site --eval "db.adminCommand('listDatabases').databases.map(db => db.name).includes('catalogue')"
+  ansible.builtin.command:  mongosh --quiet --host {{ MONGODB_HOST }} --eval "db.adminCommand('listDatabases').databases.map(db => db.name).includes('catalogue')"
   register: command_output
   args:
     chdir:  /app
@@ -36,7 +32,12 @@
 
 - name: loading data to mongodb
   when: command_output.stdout == "false"
-  ansible.builtin.shell:  mongosh --host mongodb-dev.robotshop.site </app/db/master-data.js
+  ansible.builtin.shell:  mongosh --host {{ MONGODB_HOST }} </app/db/master-data.js
+
+- name: setting up systemd
+  include_role:
+    name: common
+    tasks_from: systemd.yaml
 
 # - name: deployment
 #   tags:

@@ -1,1 +1,1 @@
-MONGODB_HOST: mongodb.robotshop.site
+MONGODB_HOST: mongodb-{{ env }}.robotshop.site

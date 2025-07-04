@@ -1,2 +1,2 @@
-REDIS_HOST: redis.robotshop.site
-CATALOGUE_HOST: catalogue.robotshop.site
+REDIS_HOST: redis-{{ env }}.robotshop.site
+CATALOGUE_HOST: catalogue-{{ env }}.robotshop.site
