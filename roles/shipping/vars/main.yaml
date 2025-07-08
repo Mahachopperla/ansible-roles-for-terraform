@@ -1,3 +1,3 @@
-CART_HOST:  cart-{{ env }}.robotshop.site
+CART_HOST:  cart.backend-{{ env }}.robotshop.site
 MYSQL_HOST: mysql-{{ env }}.robotshop.site
 
